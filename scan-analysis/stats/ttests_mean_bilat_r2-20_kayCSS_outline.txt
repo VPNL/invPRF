@@ -1,0 +1,52 @@
+
+mean r2-20
+
+**************
+-----
+Ydeg:
+-----
+ [bilat V1:] Ydeg param Inverted vs Upright, mean: t(11)=-0.67, p=0.517; diff = 0.017 (SE=0.025)
+*** [bilat IOG_faces:] Ydeg param Inverted vs Upright, mean: t(11)=-2.49, p=0.030; diff = 0.225 (SE=0.090)
+*** [bilat pFus_faces:] Ydeg param Inverted vs Upright, mean: t(11)=-3.97, p=0.002; diff = 0.416 (SE=0.105)
+*** [bilat mFus_faces:] Ydeg param Inverted vs Upright, mean: t(11)=-2.90, p=0.014; diff = 0.358 (SE=0.123)
+ [bilat pSTS_faces:] Ydeg param Inverted vs Upright, mean: t(11)=-1.26, p=0.233; diff = 0.388 (SE=0.308)
+-----
+Xdeg:
+-----
+ [bilat V1:] Xdeg param Inverted vs Upright, mean: t(11)=-0.60, p=0.564; diff = 0.020 (SE=0.034)
+ [bilat IOG_faces:] Xdeg param Inverted vs Upright, mean: t(11)=-0.53, p=0.609; diff = 0.042 (SE=0.079)
+ [bilat pFus_faces:] Xdeg param Inverted vs Upright, mean: t(11)=0.50, p=0.625; diff = -0.060 (SE=0.120)
+ [bilat mFus_faces:] Xdeg param Inverted vs Upright, mean: t(11)=-0.42, p=0.686; diff = 0.052 (SE=0.126)
+*** [bilat pSTS_faces:] Xdeg param Inverted vs Upright, mean: t(11)=2.30, p=0.042; diff = -0.649 (SE=0.282)
+-----
+eccen:
+-----
+ [bilat V1:] eccen param Inverted vs Upright, mean: t(11)=0.24, p=0.813; diff = -0.009 (SE=0.039)
+*** [bilat IOG_faces:] eccen param Inverted vs Upright, mean: t(11)=2.68, p=0.021; diff = -0.118 (SE=0.044)
+*** [bilat pFus_faces:] eccen param Inverted vs Upright, mean: t(11)=2.88, p=0.015; diff = -0.213 (SE=0.074)
+*** [bilat mFus_faces:] eccen param Inverted vs Upright, mean: t(11)=4.53, p=0.001; diff = -0.389 (SE=0.086)
+ [bilat pSTS_faces:] eccen param Inverted vs Upright, mean: t(11)=1.20, p=0.257; diff = -0.375 (SE=0.313)
+-----
+gain:
+-----
+ [bilat V1:] gain param Inverted vs Upright, mean: t(11)=0.06, p=0.955; diff = -0.004 (SE=0.065)
+*** [bilat IOG_faces:] gain param Inverted vs Upright, mean: t(11)=-2.50, p=0.029; diff = 0.416 (SE=0.166)
+ [bilat pFus_faces:] gain param Inverted vs Upright, mean: t(11)=-1.88, p=0.087; diff = 0.512 (SE=0.273)
+*** [bilat mFus_faces:] gain param Inverted vs Upright, mean: t(11)=-3.46, p=0.005; diff = 0.850 (SE=0.246)
+ [bilat pSTS_faces:] gain param Inverted vs Upright, mean: t(11)=1.64, p=0.129; diff = -0.542 (SE=0.330)
+-----
+size:
+-----
+ [bilat V1:] size param Inverted vs Upright, mean: t(11)=-2.17, p=0.053; diff = 0.083 (SE=0.038)
+ [bilat IOG_faces:] size param Inverted vs Upright, mean: t(11)=-0.99, p=0.345; diff = 0.138 (SE=0.139)
+*** [bilat pFus_faces:] size param Inverted vs Upright, mean: t(11)=-2.99, p=0.012; diff = 0.354 (SE=0.119)
+*** [bilat mFus_faces:] size param Inverted vs Upright, mean: t(11)=-4.72, p=0.001; diff = 0.673 (SE=0.142)
+*** [bilat pSTS_faces:] size param Inverted vs Upright, mean: t(11)=-3.52, p=0.005; diff = 0.778 (SE=0.221)
+-----
+r2:
+-----
+ [bilat V1:] r2 param Inverted vs Upright, mean: t(11)=-0.84, p=0.419; diff = 0.457 (SE=0.545)
+*** [bilat IOG_faces:] r2 param Inverted vs Upright, mean: t(11)=-4.47, p=0.001; diff = 5.908 (SE=1.322)
+*** [bilat pFus_faces:] r2 param Inverted vs Upright, mean: t(11)=-10.11, p=0.000; diff = 8.919 (SE=0.882)
+*** [bilat mFus_faces:] r2 param Inverted vs Upright, mean: t(11)=-12.85, p=0.000; diff = 14.061 (SE=1.095)
+*** [bilat pSTS_faces:] r2 param Inverted vs Upright, mean: t(11)=-4.35, p=0.001; diff = 10.059 (SE=2.312)

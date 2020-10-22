@@ -1,0 +1,107 @@
+
+**************
+mean, IOG_faces pFus_faces mFus_faces pSTS_faces
+**************
+pRF file: prfSets/fixPRF_kayCSS_outline_lh_r2-20.mat
+
+-----
+Y:
+-----
+Significant Main Effects: 
+condition, F(1,10)=8.82, p=0.014.
+
+Significant Interactions: 
+
+N.S: 
+hem, F(1,10)=0.10, p=0.758.
+ROI, F(3,30)=0.51, p=0.681.
+hem x ROI, F(3,30)=0.55, p=0.649.
+hem x condition, F(1,10)=2.61, p=0.137.
+ROI x condition, F(3,30)=0.83, p=0.489.
+hem x ROI x condition, F(3,30)=0.67, p=0.577.
+
+
+-----
+X:
+-----
+Significant Main Effects: 
+hem, F(1,10)=375.60, p=0.000.
+
+Significant Interactions: 
+hem x ROI, F(3,30)=4.49, p=0.010.
+
+N.S: 
+ROI, F(3,30)=2.15, p=0.114.
+condition, F(1,10)=0.31, p=0.592.
+hem x condition, F(1,10)=1.16, p=0.306.
+ROI x condition, F(3,30)=0.39, p=0.763.
+hem x ROI x condition, F(3,30)=0.06, p=0.982.
+
+
+-----
+eccen:
+-----
+Significant Main Effects: 
+hem, F(1,10)=9.68, p=0.011.
+ROI, F(3,30)=30.44, p=0.000.
+condition, F(1,10)=5.81, p=0.037.
+
+Significant Interactions: 
+hem x ROI, F(3,30)=3.99, p=0.017.
+
+N.S: 
+hem x condition, F(1,10)=0.22, p=0.649.
+ROI x condition, F(3,30)=0.56, p=0.645.
+hem x ROI x condition, F(3,30)=0.72, p=0.549.
+
+
+-----
+size:
+-----
+Significant Main Effects: 
+ROI, F(3,30)=7.13, p=0.001.
+condition, F(1,10)=56.07, p=0.000.
+
+Significant Interactions: 
+hem x ROI, F(3,30)=3.36, p=0.032.
+ROI x condition, F(3,30)=7.53, p=0.001.
+
+N.S: 
+hem, F(1,10)=0.01, p=0.920.
+hem x condition, F(1,10)=1.18, p=0.303.
+hem x ROI x condition, F(3,30)=2.64, p=0.068.
+
+
+-----
+gain:
+-----
+Significant Main Effects: 
+
+Significant Interactions: 
+ROI x condition, F(3,30)=4.66, p=0.009.
+
+N.S: 
+hem, F(1,10)=2.77, p=0.127.
+ROI, F(3,30)=0.61, p=0.615.
+condition, F(1,10)=2.07, p=0.181.
+hem x ROI, F(3,30)=0.75, p=0.530.
+hem x condition, F(1,10)=0.05, p=0.824.
+hem x ROI x condition, F(3,30)=0.36, p=0.781.
+
+
+-----
+r2:
+-----
+Significant Main Effects: 
+ROI, F(3,30)=17.59, p=0.000.
+condition, F(1,10)=80.36, p=0.000.
+
+Significant Interactions: 
+ROI x condition, F(3,30)=7.47, p=0.001.
+
+N.S: 
+hem, F(1,10)=0.19, p=0.669.
+hem x ROI, F(3,30)=1.13, p=0.352.
+hem x condition, F(1,10)=1.28, p=0.283.
+hem x ROI x condition, F(3,30)=0.23, p=0.872.
+
