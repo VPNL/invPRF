@@ -21,7 +21,7 @@ tests = {'slope' 'intercept'};
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % what to plot?                        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-saveDir = [dirOf(pwd) '/stats/'];
+saveDir = [pwd '/stats/'];
 checkDir(saveDir);
 fid = fopen([saveDir 'ANOVA2_' hemText(hems) '_sizeEccen_' whichANOVA '-' num2str(minR2) '_' whichModel '_' whichStim '.txt'],'w+');
 
