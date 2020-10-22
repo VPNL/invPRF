@@ -8,7 +8,7 @@ _________________________
 Contact: Lead author Sonia Poltoratski (sonia09@stanford.edu) and senior author Kalanit Grill-Spector (kalanit@stanford.edu) will handle additional info requests.
 _________________________
 
-**Dependencies:** github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils
+**Dependencies:** https://github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils
 
 **Organization:** 
 >
