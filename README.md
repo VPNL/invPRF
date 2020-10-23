@@ -8,7 +8,7 @@ _________________________
 Contact: Lead author Sonia Poltoratski (sonia09@stanford.edu) and senior author Kalanit Grill-Spector (kalanit@stanford.edu) will handle additional info requests.
 _________________________
 
-**Dependencies:** https://github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils
+**Dependencies:** https://github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils. Scripts were developed and validated using MATLAB 2019b (Mac OS/Linux). 
 
 **Organization:** 
 
@@ -16,13 +16,13 @@ _________________________
 
 - `/scan-analysis`: analysis and plotting code for scan experiment  
 
-- `/scan-analysis/cssFit`: a sample local (non-cluster-compute) version of CSS fitting  
+    - `/cssFit`: a sample local (non-cluster-compute) version of CSS fitting  
 
-- `/scan-analysis/simulations`: code implementing additional simulations described in figures S2 (noiseSim_), S7 (prfRec_), and S8 (imOffset_)  
+    - `/simulations`: code implementing additional simulations described in figures S2 (noiseSim_), S7 (prfRec_), and S8 (imOffset_)  
 
-- `/scan-analysis/coverage`: pre-computed bootstrapped coverage metrics used in coverage density plotting  
+    - `/coverage`: pre-computed bootstrapped coverage metrics used in coverage density plotting  
 
-- `/scan-analysis/prfSets`: pre-computed and trimmed pRF model fits used in core analyses  
+    - `/prfSets`: pre-computed and trimmed pRF model fits used in core analyses  
 
 - `/behav-experiment`: stimulus and development code for the behavioral FIE experiment, including initial optimal-position simulation (figure 6)     
 
