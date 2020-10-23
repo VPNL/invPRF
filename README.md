@@ -26,7 +26,7 @@ _________________________
 
 - `/behav-experiment`: stimulus and development code for the behavioral FIE experiment, including initial optimal-position simulation (figure 6)     
 
-- `/behav-experiment/data`:	pre-processed eyetracking data (converted from eyelink .asc, filtered for fixation breakage)  
+    - `/data`:	pre-processed eyetracking data (converted from eyelink .asc, filtered for fixation breakage)  
 
 - `/behav-analysis`: analysis and plotting code for behavioral experiment  
 
