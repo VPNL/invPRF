@@ -3,9 +3,9 @@ clear all; close all;
 % experiment and session
 
 plotPars = {'gain' 'r2' 'Y' 'X' 'size' };%{'Y'};%
-parTitles = { 'Gain Estim' 'Estimated R^{2}' 'Y Estim.' 'X Estim.' 'Size [2xSD/sqrt(N)] (dva)'};%{'Y estim'};%
+parTitles = {'Gain Estim' 'Estimated R^{2}' 'Y Estim.' 'X Estim.' 'Size [2xSD/sqrt(N)] (dva)'};%{'Y estim'};%
 whichPlots = [0 1]; % 1 = single random voxel, 2 = summary of all plots
-saveFig = 1;
+saveFig = 0;
 
 sim.expt = 'fixPRF';
 sim.whichModel = 'kayCSS'; sim.whichStim = 'outline'; sim.minR2 = 20;
@@ -14,9 +14,10 @@ sim.simSuffix = 'scaleIterNoise';
 sim.ROI = 'mFus_faces';
 sim.hem = 'rh';
 
-load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
-fits = roi(cellNum(sim.ROI,info.ROIs)).fits; % since we're looking at one ROI at a time here, simplify
 
+load(['prfSets/fixPRF_kayCSS_outline_' hemText(sim.hem) '_r2-20.mat']);
+%load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
+fits = roi(cellNum(sim.ROI,info.ROIs)).fits; % since we're looking at one ROI at a time here, simplify
 
 load(['iterNoiseSim/' sim.simSuffix '_' sim.expt '_' sim.whichModel '_' sim.hem sim.ROI '.mat']);
 

@@ -8,11 +8,11 @@
 
 expt = 'fixPRF'; % assumes all subject in pRFset
 minR2 = ['r2-20'];          % cutoff for vox selection
-ROIs = {'mFus_faces'};%{'IOG_faces' 'pFus_faces' 'V1' 'pSTS_faces'};%{'IOG_faces' 'pFus_faces' 'mFus_faces' 'pSTS_faces'}; % if more than one ROI, combine voxel positions for them
+ROIs = {'mFus_faces'};
 
-whichStim = 'outline';%'photo';%'internal';%
+whichStim = 'outline';
 whichLoc = 'outline';
-whichModel = 'kayCSS';%'cssShift';%
+whichModel = 'kayCSS';
 hems = {'rh' 'lh'};
 
 sim.suffix = ''; % if blank, uses original convention of setting prf sd to equal size as 2 sigma/sqrt(n);
@@ -37,7 +37,7 @@ for c = 1:2
         subplot(2,length(ROIs),(c-1)*length(ROIs)+r);
         else subplot(1,2,c); end
         
-        simName = [raid 'invPRF/fixPRF/behavSim/' whichStim '_' ROIs{r} '_' minR2 '_' num2str(sim.drawVox) 'vox' sim.suffix];
+        simName = ['behavSim_' whichStim '_' ROIs{r} '_' minR2 '_' num2str(sim.drawVox) 'vox' sim.suffix];
         if ~strcmp(whichLoc,'internal') simName = [simName '_' whichLoc]; end
          
         if ~exist([simName '_cond' num2str(c) '.mat'])
@@ -74,6 +74,4 @@ for c = 1:2
         title({ROIs{r};sprintf('Best Location: [%.2f (SE=%.2f) %.2f (SE=%.2f)] deg',bestPos(1),sem(1),bestPos(2),sem(2))});   
     end
 end
-%superTitle(sprintf('Simulation:,12,.05);
-niceSave([dirOf(pwd) 'figures/' expt '/optimPosition/'],['fullSim_' whichStim '_' whichLoc],ROIs,[],{'png' 'svg'}); % just save pngs, since these can be generated pretty quickly
-    
+  

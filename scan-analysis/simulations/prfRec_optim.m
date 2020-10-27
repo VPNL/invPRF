@@ -10,18 +10,18 @@ expt = 'fixPRF'; % assumes all subject in pRFset
 minR2 = ['r2-20'];          % cutoff for vox selection
 ROIs = {'mFus_faces'}; % if more than one ROI, combine voxel positions for them
 
-whichStim ='outline';% 'internal';%'photo';%
-whichLoc = 'outline'; % outline or internal
-whichModel = 'kayCSS';%'cssShift';%
+whichStim ='outline';% 
+whichLoc = 'outline'; %
+whichModel = 'kayCSS';%'
 hems = {'rh' 'lh'};
 recomp = 1;
 
 sim.numSims = 1000;%50;
 sim.drawVox = .8; % now a proportion, vs. absolute number
-sim.suffix =  ''; % now can call halfSize correction; leave blank for newer pRFsets
+sim.suffix =  ''; 
 
 for r = 1:length(ROIs)
-    sim.name = [raid 'invPRF/fixPRF/behavSim/' whichStim '_' ROIs{r} '_' minR2 '_' num2str(sim.drawVox) 'vox' sim.suffix];
+    sim.name = ['behavSim_' whichStim '_' ROIs{r} '_' minR2 '_' num2str(sim.drawVox) 'vox' sim.suffix];
     if ~strcmp(whichLoc,'internal') sim.name = [sim.name '_' whichLoc]; end
     for c = 1:2
         if ~exist([sim.name '_cond' num2str(c) '.mat']) || recomp
@@ -35,7 +35,7 @@ for r = 1:length(ROIs)
             % load coverage maps                   %
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             try
-                imFile = [raid 'invPRF/fixPRF/prfIms/' ROIs{r} '_' fileName(pRFfile('',expt,minR2,whichStim,whichModel,hems)) '_cond' num2str(c) sim.suffix '.mat'];
+                imFile = [ 'prfIms/' ROIs{r} '_' fileName(pRFfile('',expt,minR2,whichStim,whichModel,hems)) '_cond' num2str(c) sim.suffix '.mat'];
                 load(imFile)
             catch
                 error(sprintf('Missing %s! Check filepath or run analysis_makePRFIms.m\n',imFile)); end

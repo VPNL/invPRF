@@ -27,7 +27,8 @@ tic
 sim.baseCond = 2; sim.compCond = 1;
 
 % now we load in the data from both hemispheres, and threshold across
-load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
+load([dirOf(pwd) 'prfSets/fixPRF_kayCSS_outline_' hemText(sim.hem) '_r2-20.mat']);
+%load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
 ROInum = cellNum(sim.ROI,info.ROIs);
 
 fits = roi(ROInum).fits; % since we're looking at one ROI at a time here, simplify
