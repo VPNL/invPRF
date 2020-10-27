@@ -8,7 +8,8 @@ _________________________
 Contact: Lead author Sonia Poltoratski (sonia09@stanford.edu) and senior author Kalanit Grill-Spector (kalanit@stanford.edu) will handle additional info requests.
 _________________________
 
-**Dependencies:** https://github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils. Scripts were developed and validated using MATLAB 2019b (Mac OS/Linux). 
+**Dependencies:** https://github.com/soniapolt/utils + https://github.com/kendrickkay/knkutils.   
+Scripts were developed and validated using MATLAB 2019b (Mac OS/Linux). Some require Psychotoolbox 3.0.14 (http://psychtoolbox.org/)   
 
 **Organization:** 
 
