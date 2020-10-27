@@ -17,7 +17,7 @@ sortR2 = 1; % if 0, grab random voxels
 sampleVox = 10; % how many randomly selected voxels are we plotting?
 
 % plotting choices
-saveFig = 1;
+saveFig = 0;
 im.gridSpaceDeg = 1.5;
 im.faceSizeDeg = 3.2;
 im.ppd = 100; % these images need to be fairly high-res

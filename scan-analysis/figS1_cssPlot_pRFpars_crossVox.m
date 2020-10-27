@@ -29,7 +29,8 @@ fontSize = 11; titleSize = 14;
 nBins = 20; % histogram bins
 
 % now we load in the data from both hemispheres, and threshold across
-load(pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems,fitSuffix));
+load(['prfSets/fixPRF_kayCSS_outline_' hemText(hems) '_r2-20.mat']);
+%load(pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems,fitSuffix));
 ROInum = cellNum(ROIs,info.ROIs);
 subjNum = cellNum(subjs,info.subjs);
 
