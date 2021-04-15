@@ -82,8 +82,8 @@ for t = 1:length(tests)
             comp(c).p(r) = P;
             comp(c).stats{r} = STATS;
             if H sig = '***'; else sig = ''; end
-            fprintf('%s [%s %s:] %s param %s, %s: t(%d)=%.2f, p=%.3f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},test,comp(c).descr,whichM,STATS.df,STATS.tstat,P,comp(c).diff,comp(c).se);
-            fprintf(fid,'%s [%s %s:] %s param %s, %s: t(%d)=%.2f, p=%.3f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},test,comp(c).descr,whichM,STATS.df,STATS.tstat,P,comp(c).diff,comp(c).se);
+            fprintf('%s [%s %s:] %s param %s, %s: t(%d)=%.5f, p=%.5f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},test,comp(c).descr,whichM,STATS.df,STATS.tstat,P,comp(c).diff,comp(c).se);
+            fprintf(fid,'%s [%s %s:] %s param %s, %s: t(%d)=%.5f, p=%.5f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},test,comp(c).descr,whichM,STATS.df,STATS.tstat,P,comp(c).diff,comp(c).se);
             
         end
     end

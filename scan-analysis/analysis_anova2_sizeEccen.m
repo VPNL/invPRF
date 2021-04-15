@@ -105,8 +105,8 @@ for t = 1:length(tests)
         p(r) = P;
         stats{r} = STATS;
         if H sig = '***'; else sig = ''; end
-        fprintf('%s [%s %s:] %s: t(%d)=%.2f, p=%.3f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},tests{t},STATS.df,STATS.tstat,P,diff,se);
-        fprintf(fid,'%s [%s %s:]  %s: t(%d)=%.2f, p=%.3f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},tests{t},STATS.df,STATS.tstat,P,diff,se);
+        fprintf('%s [%s %s:] %s: t(%d)=%.5f, p=%.5f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},tests{t},STATS.df,STATS.tstat,P,diff,se);
+        fprintf(fid,'%s [%s %s:]  %s: t(%d)=%.5f, p=%.5f; diff = %.3f (SE=%.3f)\n',sig,hemText(hems),ROIs{r},tests{t},STATS.df,STATS.tstat,P,diff,se);
     end
 end
 playSound;

@@ -2,6 +2,9 @@
 % subject, and then averages them together for the total map.
 % hybrid of mrvista coverage generation (bootstrapping) and SP coverage
 % generation (no spatial smoothing, other choices...)
+% note - re-running this bootstrap may alter the numerical output of
+% downstream analyses! the iteration used in the paper is found in
+% coverage/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all; close all;
