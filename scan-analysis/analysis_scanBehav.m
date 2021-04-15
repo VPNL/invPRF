@@ -15,7 +15,7 @@ rings = {[[1:5:21] [5:5:25] [2:4] [22:24]];...
 
 grpPerf = [];
 
-for s = 1:length(prfSubjs)
+for s = 1:length(subjs)
 
 subj = subjs{s};
 % load data
@@ -41,15 +41,18 @@ fontSize = 14; titleSize = 18;
 niceFig([.1 .1 .8 .5],fontSize);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% task 1
-switch expt% load subject's performance
-    case 'fixPRF'
-        [stim,perfPlot] = fixPRF_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
-    case 'compPRF'
-        [stim,perfPlot] = compPRF_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
-    case 'invPRF3'
-        [stim,perfPlot] = invPRF3_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
-end
+% % task 1
+% switch expt% load subject's performance
+%     case 'fixPRF'
+%         [stim,perfPlot] = fixPRF_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
+%     case 'compPRF'
+%         [stim,perfPlot] = compPRF_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
+%     case 'invPRF3'
+%         [stim,perfPlot] = invPRF3_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
+% end
+
+[stim,perfPlot] = fixPRF_getBehavior(subj,numRuns,[dirOf(pwd) '/scan-eyetracking/run-output'],1);
+
 numPlots = [1 size(perfPlot,2)];
 for c = 1:length(perfPlot)
     subplot(numPlots(1),numPlots(2),c)

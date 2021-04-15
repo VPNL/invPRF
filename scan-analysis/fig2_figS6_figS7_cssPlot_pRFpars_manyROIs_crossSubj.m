@@ -31,11 +31,11 @@ nBins = 20; % histogram bins
 prfSet = ['prfSets/fixPRF_kayCSS_outline_' hemText(hems) '_r2-20.mat']; % pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems);
 load(prfSet);
 
-niceFig([.1 .4 .3 .2*length(plotPars)]);
+niceFig([.1 .4 .2*length(plotPars) .6]);
 
 for p = 1:length(plotPars)
     plotPar = plotPars{p}; parTitle = parTitles{p};
-    subplot(length(plotPars),1,p);
+    subplot(1,length(plotPars),p);
     
     allPars = nan(2*length(ROIs),length(subjs)); n=1;
     colors = [];
@@ -58,13 +58,13 @@ for p = 1:length(plotPars)
         end
     end
     
-    if containsTxt(plotPar,'gain') cutY = [0 9];
+    if containsTxt(plotPar,'gain') cutY = [0 6];
     elseif containsTxt(plotPar,'r2') cutY=[0 100];
     else cutY = []; end
-    set(gca,'TickDir','out');
+    set(gca,'TickDir','out'); 
     niceBoxPlusGrouped(allPars',ROIs,{roi(1).fits(cOrder).cond},flipud(colors),cutY,1,0);
     title({plotPar;strTogether({roi(1).fits(cOrder).cond})}); titleText = [expt ' (' hemText(hems) '), voxels R^2 > ' num2str(minR2) '), ' whichStim ' stim, ' whichModel ' model'];
-    
+    axis square;
     superTitle(titleText,titleSize,.025);
 end
 

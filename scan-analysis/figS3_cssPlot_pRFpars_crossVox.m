@@ -2,17 +2,17 @@
 
 clear all; close all;
 
-subjs = prfSubjs;%{'MG' 'JG' 'TH' 'EM' 'DF' 'SP'};%
+subjs = prfSubjs;
 expt = 'fixPRF';
 
 saveFig =1;
 convertDVA = 1;
 
-minR2 = 'r2-20';%['perc-50'];          % cutoff for vox selection
+minR2 = 'r2-20';%
 ROIs= ['V1' standardROIs('face')];%{'mFus_faces'};%standardROIs;%('face+')
 
-whichStim = 'outline';%'photo';%'eyes';%'internal';%
-whichModel = 'kayCSS';%'flipCSSn';%'cssExpN';%'cssShift';%
+whichStim = 'outline';%
+whichModel = 'kayCSS';%'
 whichM = 3; % 1 = mean, 2 = mode/peak, 3 = median
 plotPars = {'r2'};%{'Y' 'size'};%{'gain' 'r2' 'Y' 'X' 'size' };%{'Y'};%
 parTitles = {'Estimated R^{2}'};%{'Y' 'size [sigma/sqrt(N)] (dva)'}%{ 'Gain Estim' 'Estimated R^{2}' 'Y Estim.' 'X Estim.' 'Size [2xSD/sqrt(N)] (dva)'};%{'Y estim'};%
