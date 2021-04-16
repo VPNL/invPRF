@@ -1,0 +1,13 @@
+
+-----
+std of eye movement:
+-----
+Significant Main Effects: 
+
+Significant Interactions: 
+
+N.S: 
+X/Y, F(2)=2.04656227, p=0.16607384.
+stim condition, F(1)=0.20023879, p=0.66804744.
+X/Y x stim condition, F(2)=0.76173636, p=0.48525953.
+
