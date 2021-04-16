@@ -18,7 +18,7 @@ for rr = 1:length(rois)
     sim.expt = 'fixPRF';
     sim.numVox = .8;
     sim.whichModel = 'kayCSS'; sim.whichStim = 'outline'; sim.minR2 = 20;
-    sim.simSuffix = 'scaleNoise'; % scaleOnly or scaleNoise
+    sim.simSuffix = 'IterScaleNoise'; % scaleOnly or scaleNoise
     sim.iterStep = .9; % starting value for noise iteration
     sim.r2thresh = 1;   % in r2 units, difference between conditions that we'll allow
     
@@ -80,15 +80,16 @@ for rr = 1:length(rois)
                     [modelfun, model, metric, resampling] = init_kayCSS(im.size,sim.hem,im.ppd);
             end
             
-            if containsTxt(sim.simSuffix,'scale') % are we rescaling the beta amps?
+            if containsTxt(lower(sim.simSuffix),'scale') % are we rescaling the beta amps?
                 sim.vox(v).scale = range(sim.base(v).betas)/range(sim.comp(v).betas);
             else % oh no?
                 sim.vox(v).scale =1;
             end
             
-            sim.vox(v).scaleData = sim.base(v).betas./sim.vox(v).scale;
+            % changing this for revision - now we scale at every step
+            %sim.vox(v).scaleData = sim.base(v).betas./sim.vox(v).scale;
             
-            if containsTxt(sim.simSuffix,'noise') || containsTxt(sim.simSuffix,'Noise')
+            if containsTxt(lower(sim.simSuffix),'noise')
                 doNoise = 1; else doNoise = 0; end
             if doNoise
             sim.vox(v).noiseLevel = abs(sim.base(v).r2-sim.comp(v).r2)/100;
@@ -98,7 +99,8 @@ for rr = 1:length(rois)
                 i = 1;
                 fprintf('Now simulating with noise level = %.4f...\n',sim.vox(v).noiseLevel);
                 sim.vox(v).addNoise = sim.vox(v).noiseLevel*randn(length(sim.base(v).betas),1);
-                sim.vox(v).simData = sim.vox(v).scaleData+sim.vox(v).addNoise;
+                sim.vox(v).simData = sim.base(v).betas+sim.vox(v).addNoise;
+                sim.vox(v).simData = sim.vox(v).simData./sim.vox(v).scale;
                 
                 opt = struct( ...
                     'stimulus',    stimulus, ...

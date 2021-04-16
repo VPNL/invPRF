@@ -3,6 +3,9 @@
 % takes X random voxels from a specified ROI across all subjects, scales
 % betas and iteratively adds noise to match upright R2 to inverted R2,
 % compares resulting estimates to 
+% following reviewer question, this now rescales at each iteration, since
+% the previous method would end up with a different scale after adding
+% noise
 
 clear all; close all;
 
@@ -15,7 +18,7 @@ for rr = 1:length(rois)
 sim.expt = 'fixPRF';
 sim.numVox = .8;
 sim.whichModel = 'kayCSS'; sim.whichStim = 'outline'; sim.minR2 = 20;
-sim.simSuffix = 'scaleIterNoise';
+sim.simSuffix = 'IterScaleNoise';
 sim.iterStep = .9; % starting value for noise iteration
 sim.r2thresh = 1;   % in r2 units, difference between conditions that we'll allow
 
@@ -27,8 +30,7 @@ tic
 sim.baseCond = 2; sim.compCond = 1;
 
 % now we load in the data from both hemispheres, and threshold across
-load([dirOf(pwd) 'prfSets/fixPRF_kayCSS_outline_' hemText(sim.hem) '_r2-20.mat']);
-%load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
+load(pRFfile(dirOf(pwd),sim.expt,sim.minR2,sim.whichStim,sim.whichModel,{sim.hem}));
 ROInum = cellNum(sim.ROI,info.ROIs);
 
 fits = roi(ROInum).fits; % since we're looking at one ROI at a time here, simplify
@@ -79,13 +81,14 @@ for v = 1:sim.numVox
             [modelfun, model, metric, resampling] = init_kayCSS(im.size,sim.hem,im.ppd);
     end
     
-    if containsTxt(sim.simSuffix,'scale') % are we rescaling the beta amps?
+    if containsTxt(lower(sim.simSuffix),'scale') % are we rescaling the beta amps?
         sim.vox(v).scale = range(sim.base(v).betas)/range(sim.comp(v).betas);
     else % oh no?
         sim.vox(v).scale =1;
     end
     
-    sim.vox(v).scaleData = sim.base(v).betas./sim.vox(v).scale;
+    % we used to just scale once prior to the noise step
+    %sim.vox(v).scaleData = sim.base(v).betas./sim.vox(v).scale;
     
     sim.vox(v).noiseLevel = abs(sim.base(v).r2-sim.comp(v).r2)/100;
     
@@ -93,7 +96,9 @@ for v = 1:sim.numVox
         i = 1;
         fprintf('Now simulating with noise level = %.4f...\n',sim.vox(v).noiseLevel);
         sim.vox(v).addNoise = sim.vox(v).noiseLevel*randn(length(sim.base(v).betas),1);
-        sim.vox(v).simData = sim.vox(v).scaleData+sim.vox(v).addNoise;
+        sim.vox(v).simData = sim.vox(v).betas+sim.vox(v).addNoise;
+        % now we scale after each noise step
+        sim.vox(v).simData = sim.base(v).simData./sim.vox(v).scale;
         
         opt = struct( ...
             'stimulus',    stimulus, ...

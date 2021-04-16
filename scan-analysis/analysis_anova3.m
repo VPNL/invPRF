@@ -7,16 +7,16 @@ expt = 'fixPRF';
 tests = {'Y' 'X' 'eccen' 'size' 'gain' 'r2'}; % can be parname (Y,X,sd,gain,exp,shift) or pRF.read value (r2,size,eccen,gain)
 whichM = 'mean'; % mean or median
 
-r2cutoff = 'r2-20'; %'perc-50';%'r2-50';%   %    %or 'r2-20'    % cutoff for vox selection
-whichANOVA = 'face'; % 'EVC' or 'face';
+r2cutoff = 'r2-20';
+whichANOVA = 'face'; 
 
-ROIs= standardROIs(whichANOVA);%{'V1' 'hV4' 'IOG_faces' 'pFus_faces' 'mFus_faces'};
+ROIs= standardROIs(whichANOVA);
 fitSuffix = '';
 
 txtName = [whichANOVA '-' r2cutoff];
 
 whichStim = 'outline';
-whichModel = 'kayCSS';
+whichModel = 'cssExp1';%'kayCSS'; % (kayCSS is main expt, cssExp1 is figure S6)
 hems = {'rh' 'lh'};
 
 factNames = {'hem' 'ROI' 'condition'};
@@ -29,7 +29,7 @@ factNames = {'hem' 'ROI' 'condition'};
 hem = struct;
 
 for h = 1:length(hems)
-    pF = ['prfSets/fixPRF_kayCSS_outline_' hems{h} '_r2-20.mat']; % pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems);
+    pF = ['prfSets/fixPRF_' whichModel '_outline_' hems{h} '_r2-20.mat']; % pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems);
     load(pF); fprintf('...%s\n',pF);
     hem(h).subj = subj;
 end
