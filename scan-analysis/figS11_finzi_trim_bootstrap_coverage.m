@@ -1,23 +1,27 @@
-% code to trim & reanalyze finzi 2020 data to match poltoratski 2020
+% code to trim & reanalyze finzi 2021 data to match poltoratski 2021
 % parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all; close all;
-prfSet = 'finzi2020_bi_pRFset_ve20.mat';
+prfSet = 'finzi2021_bi_pRFset_ve20.mat';
 load(['prfSets/' prfSet]);
 
 minR2 = 20; % default is 20 in this set - to further trim, edit this
 ROIs= {'IOG_faces', 'pFus_faces', 'mFus_faces', 'pSTS_faces'};
 
-computeCoverage = 1;
+computeCoverage = 0; % re-running this will generate a new bootstrap sample & will change downstream output!
 contourPlot = 0; % cov plot or contour plot
-plotTrims = 1;
-plotIndivs = 1;
+plotTrims = 0;
+plotIndivs =0;
 plotCov = 1;
-plotParStuff = 1;
+plotParStuff = 0;
 
 boot.maxEccen = 5;   % in deg, max eccentricity. 50 in full set, 5 in limited set
-boot.doTrim = 1;
+boot.doTrim = 0;
+
+% path to the manuscript's bootstrap samples
+grpCov = ['coverage/finzi_eccen' num2str(boot.maxEccen)  '_bi_pRFset_ve20.mat'];
+grpTrimmed = ['prfSets/trimmed_finzi_eccen' num2str(boot.maxEccen)  '_bi_pRFset_ve20.mat'];
 
 plotCent = 1; % weighted centroid of each image
 hem = 'bi';
@@ -34,16 +38,16 @@ boot.minR2 = minR2;
 % load data & set up folders           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-exptDir = [pwd '/finzi2020'];
+exptDir = [pwd '/finzi2021'];
 
 if boot.szMult == 1 multText = ''; else multText = ['_mult' num2str(boot.szMult)]; end
 bootOpts = ['analyzePRF_' boot.method '_minR2-' num2str(minR2)];
 matPath = [exptDir '/'  bootOpts '/mats/eccen-' num2str(boot.maxEccen)]; checkDir(matPath);
 covImPath = [exptDir '/'  bootOpts '/covPlots/eccen-' num2str(boot.maxEccen)]; checkDir(covImPath);
 tic
-grpTrimmed = [matPath  'trimmed_' fileName(prfSet) '.mat'];
-grpCov = [matPath  'grpCov_' fileName(prfSet) '.mat'];
-if ~exist(grpTrimmed) || computeCoverage
+
+
+if  ~exist(grpTrimmed) || computeCoverage
     allR = []; allC = [];
     
     %%% TRIMMING STEP
