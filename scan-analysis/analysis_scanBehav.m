@@ -51,7 +51,7 @@ niceFig([.1 .1 .8 .5],fontSize);
 %         [stim,perfPlot] = invPRF3_getBehavior(session,numRuns,[dirOf(pwd) expt],1);
 % end
 
-[stim,perfPlot] = fixPRF_getBehavior(subj,numRuns,[dirOf(pwd) '/scan-eyetracking/run-output'],1);
+[stim,perfPlot] = fixPRF_getBehavior(subj,numRuns,[dirOf(pwd) '/scan-experiment/run-output'],1);
 
 numPlots = [1 size(perfPlot,2)];
 for c = 1:length(perfPlot)
