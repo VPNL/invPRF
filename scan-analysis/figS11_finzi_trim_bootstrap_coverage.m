@@ -3,8 +3,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all; close all;
-prfSet = 'finzi2021_bi_pRFset_ve20.mat';
-load(['prfSets/' prfSet]);
 
 minR2 = 20; % default is 20 in this set - to further trim, edit this
 ROIs= {'IOG_faces', 'pFus_faces', 'mFus_faces', 'pSTS_faces'};
@@ -14,14 +12,16 @@ contourPlot = 0; % cov plot or contour plot
 plotTrims = 0;
 plotIndivs =0;
 plotCov = 1;
-plotParStuff = 0;
+plotParStuff = 0;   % this plots X/Y but not the coverage centroid as in the paper
 
-boot.maxEccen = 5;   % in deg, max eccentricity. 50 in full set, 5 in limited set
-boot.doTrim = 0;
+boot.maxEccen = 5;  % in deg, max eccentricity. 50 in full set, 5 in limited set
+boot.doTrim = 0;    % re-running this shouldn't be necessary given below lines
 
-% path to the manuscript's bootstrap samples
-grpCov = ['coverage/finzi_eccen' num2str(boot.maxEccen)  '_bi_pRFset_ve20.mat'];
-grpTrimmed = ['prfSets/trimmed_finzi_eccen' num2str(boot.maxEccen)  '_bi_pRFset_ve20.mat'];
+% path to the manuscript's bootstrap samples & trimmed/untrimmed files
+if boot.maxEccen == 5 prfSet = 'finzi2021_bi_pRFset_ve20_trimmed.mat'; else prfSet = 'finzi2021_bi_pRFset_ve20_untrimmed.mat'; end
+grpCov = ['coverage/finzi2021_eccen' num2str(boot.maxEccen)  '_bi_pRFset_ve20.mat'];
+load(['prfSets/' prfSet]);
+
 
 plotCent = 1; % weighted centroid of each image
 hem = 'bi';
@@ -47,7 +47,7 @@ covImPath = [exptDir '/'  bootOpts '/covPlots/eccen-' num2str(boot.maxEccen)]; c
 tic
 
 
-if  ~exist(grpTrimmed) || computeCoverage
+if  computeCoverage % trimming step - you shouldn't need to re-run this
     allR = []; allC = [];
     
     %%% TRIMMING STEP
@@ -107,7 +107,7 @@ if  ~exist(grpTrimmed) || computeCoverage
                     subplot(2,2,4);
                     niceHist([vox.r2],condColors(1),1); title([info.subjs{s} ' r2 - post trim']);
                     superTitle([hem ' ' ROIs{r}],12,.05);s
-                    niceSave([exptDir '/' bootOpts '/trimming/'],[info.subjs{s} '_' hem '-' ROIs{r} '_maxEccen' num2str(boot.maxEccen)]);
+                    %niceSave([exptDir '/' bootOpts '/trimming/'],[info.subjs{s} '_' hem '-' ROIs{r} '_maxEccen' num2str(boot.maxEccen)]);
                     close(gcf);
                 end
             else
@@ -118,9 +118,9 @@ if  ~exist(grpTrimmed) || computeCoverage
     end
     % to look at the repeated vals
     sizeRepeats = sortrows([allR;allC]',1,'descend');
-    save(grpTrimmed,'subj','info');
+    %save(grpTrimmed,'subj','info');
     
-else load(grpTrimmed);
+%else load(['prfSets/' prfSet]);
 end
 
 if ~exist(grpCov) || computeCoverage
@@ -182,7 +182,7 @@ if plotCov
         % remove subjects who have insufficient (<10 voxels)
         for s = 1:length(boot.subjs)
             if length(subj(s).roi(r).vox) < 10
-                boot.roi(r).cov(s,:,:) = nan(111,111);
+                boot.roi(r).cov(s,:,:) = nan(101,101);
                 fprintf('Removing subject %s %s...\n',info.subjs{s},ROIs{r});
             end
         end
