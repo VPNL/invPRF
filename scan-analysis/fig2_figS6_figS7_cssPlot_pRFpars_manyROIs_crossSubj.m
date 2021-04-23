@@ -12,7 +12,7 @@ minR2 = 'r2-20';          % cutoff for vox selection
 ROIs= ['V1' standardROIs('face')];
 
 whichStim = 'outline';
-whichModel = 'kayCSS';
+whichModel = 'cssExp1';%'kayCSS'; % kayCSS is main text, cssExp1 is non-CSS pRF model
 whichM = 'mean';
 
 plotPars = {'X' 'Y' 'gain' 'size' 'r2'};
@@ -28,7 +28,7 @@ fontSize = 11; titleSize = 14;
 nBins = 20; % histogram bins
 
 % now we load in the data from both hemispheres, and threshold across
-prfSet = ['prfSets/fixPRF_kayCSS_outline_' hemText(hems) '_r2-20.mat']; % pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems);
+prfSet = ['prfSets/fixPRF_' whichModel '_outline_' hemText(hems) '_r2-20.mat']; % pRFfile(dirOf(pwd),expt,minR2,whichStim,whichModel,hems);
 load(prfSet);
 
 niceFig([.1 .4 .2*length(plotPars) .6]);
