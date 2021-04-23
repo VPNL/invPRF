@@ -14,10 +14,10 @@ ROIs= standardROIs([1 7]);%'face');%{'V1'};%['hV4' standardROIs('face')];% %{'PL
 % what to plot
 plotFit = 1; % plot the actual voxel fit as well as the beta rings
 sortR2 = 1; % if 0, grab random voxels
-sampleVox = 10; % how many randomly selected voxels are we plotting?
+sampleVox = 50; % how many randomly selected voxels are we plotting?
 
 % plotting choices
-saveFig = 0;
+saveFig = 1;
 im.gridSpaceDeg = 1.5;
 im.faceSizeDeg = 3.2;
 im.ppd = 100; % these images need to be fairly high-res
@@ -27,7 +27,7 @@ im.ppd = 100; % these images need to be fairly high-res
 minR2 =20;             % cutoff for vox selection
 whichStim = 'outline'; %
 whichModel = 'kayCSS'; %
-hems = {'rh'};
+hems = {'rh' 'lh'};
 
 plotOrder = [2 1];
 plotX = [1:25; 28:52];
@@ -112,11 +112,11 @@ for r = 1:length(ROIs)
         
         titleText = [titleText ', Session = ' fileName(fits(1).vox(v).stim,8)];
         superTitle(titleText,12, .05)
-%         if saveFig
-%             txt = [whichModel  '_' whichStim '-r' num2str(vv) '-vox' num2str(v)];
-%             niceSave([dirOf(pwd) 'figures/' expt '/voxBetas/' hemText(hems) '_' ROIs{r} '/'],txt,[],[],{'png' 'svg'}); % just save pngs, since these can be generated pretty quickly
-%             if sampleVox > 10; close(gcf); end
-%         end
+        if saveFig
+            txt = [whichModel  '_' whichStim '-r' num2str(vv) '-vox' num2str(v)];
+            niceSave([pwd '/voxPlots/' hemText(hems) '_' ROIs{r} '/'],txt,[],[],{'png'}); % just save pngs, since these can be generated pretty quickly
+            if sampleVox > 10; close(gcf); end
+        end
     end % vox
 end
 if onLaptop playSound; end
