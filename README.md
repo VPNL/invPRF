@@ -33,7 +33,11 @@ Scripts were developed and validated using MATLAB 2019b (Mac OS/Linux). Some req
 
 - `/behav-experiment`: stimulus and development code for the behavioral FIE experiment, including initial optimal-position simulation (figure 6)     
 
-    - `/data`:	pre-processed eyetracking data from behavioral experiment (converted from eyelink .asc, filtered for fixation breakage)  
+    - `/data`:	pre-processed eyetracking data from behavioral experiment (converted from eyelink .asc, filtered for fixation breakage)
+    
+    - `/initialSimulation`:	simulation code and results deriving "optimal" position from initial N=6 data
+    
+    - `/stims`: stimuli for practice and main experiment	
 
 - `/behav-analysis`: analysis and plotting code for behavioral experiment  
 
